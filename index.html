@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>九九美剧-九九美剧在线观看_美剧追剧指南与剧集片单</title>
+<meta name="description" content="九九美剧是一个面向美剧爱好者的追剧首页，提供九九美剧的剧集片单、追剧方式说明、常见问题与更新提示，帮助你理清看什么、怎么看、去哪里找。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111a2b'/%3E%3Crect x='18' y='13' width='28' height='20' rx='3' fill='none' stroke='%23f2b53a' stroke-width='3'/%3E%3Cpath d='M26 15v16M38 15v16' stroke='%23f2b53a' stroke-width='2'/%3E%3Cpath d='M20 40h24M20 48h16' stroke='%23e8e3d8' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#111a2b;
+    --ink-soft:#2b3852;
+    --paper:#f6f4ef;
+    --paper-2:#ece8df;
+    --line:#d8d2c4;
+    --gold:#f2b53a;
+    --gold-deep:#c98a12;
+    --white:#ffffff;
+    --muted:#5d6675;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,sans-serif;
+    line-height:1.75;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;}
+  .wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 22px;}
+
+  /* Header */
+  header.site{
+    position:sticky;top:0;z-index:20;
+    background:rgba(17,26,43,.96);
+    color:#e9e5da;
+    border-bottom:1px solid rgba(242,181,58,.35);
+    backdrop-filter:blur(6px);
+  }
+  .head-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:18px;min-height:64px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+  .brand-mark{
+    width:34px;height:34px;border-radius:9px;
+    background:linear-gradient(145deg,#1f2c46,#0c1424);
+    border:1px solid rgba(242,181,58,.5);
+    display:grid;place-items:center;
+  }
+  .brand-mark svg{width:22px;height:22px;}
+  .brand-name{
+    font-size:1.12rem;font-weight:700;letter-spacing:.06em;color:#fff;
+    white-space:nowrap;
+  }
+  nav.main ul{
+    display:flex;gap:22px;list-style:none;margin:0;padding:0;
+    font-size:.94rem;
+  }
+  nav.main a{
+    color:#cdd3de;padding:6px 0;border-bottom:2px solid transparent;
+    transition:color .2s,border-color .2s;
+  }
+  nav.main a:hover,nav.main a:focus{color:var(--gold);border-color:var(--gold);}
+  .head-cta{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--gold);color:#1a1405;font-weight:700;
+    padding:8px 16px;border-radius:999px;font-size:.9rem;
+    white-space:nowrap;
+  }
+  .head-cta:hover{background:#ffcf63;}
+
+  /* Hero */
+  .hero{
+    background:
+      radial-gradient(900px 380px at 85% -10%,rgba(242,181,58,.20),transparent 70%),
+      linear-gradient(180deg,#111a2b 0%,#16233a 60%,#1b2a44 100%);
+    color:#f2efe7;
+    padding:52px 0 46px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.35fr .85fr;gap:44px;align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:.8rem;letter-spacing:.14em;color:var(--gold);
+    border:1px solid rgba(242,181,58,.45);
+    padding:4px 12px;border-radius:999px;margin-bottom:18px;
+  }
+  .eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block;}
+  h1{
+    font-size:clamp(2rem,4.4vw,3rem);
+    line-height:1.22;margin:0 0 16px;color:#fff;letter-spacing:.02em;
+  }
+  h1 .hl{color:var(--gold);}
+  .hero p.lead{
+    margin:0 0 24px;font-size:1.02rem;color:#c9d1de;max-width:36em;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+  .btn-primary{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--gold);color:#191305;font-weight:700;
+    padding:12px 24px;border-radius:10px;font-size:.98rem;
+    box-shadow:0 6px 18px rgba(242,181,58,.25);
+  }
+  .btn-primary:hover{background:#ffcf63;}
+  .btn-ghost{
+    display:inline-flex;align-items:center;gap:8px;
+    border:1px solid rgba(233,229,218,.35);color:#e9e5da;
+    padding:12px 22px;border-radius:10px;font-size:.96rem;
+  }
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+  .hero-note{font-size:.82rem;color:#8f9aab;margin-top:14px;}
+
+  .poster-card{
+    background:linear-gradient(160deg,#22314e,#131d31);
+    border:1px solid rgba(242,181,58,.3);
+    border-radius:16px;padding:22px;
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+  }
+  .poster-card .tag{font-size:.76rem;letter-spacing:.12em;color:var(--gold);}
+  .poster-card h2{font-size:1.05rem;margin:8px 0 14px;color:#fff;font-weight:600;}
+  .ticket{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:9px 0;border-bottom:1px dashed rgba(233,229,218,.18);
+    font-size:.88rem;color:#c6cfdd;
+  }
+  .ticket:last-child{border-bottom:none;}
+  .ticket span:last-child{color:var(--gold);font-weight:600;}
+
+  /* Section base */
+  section{padding:56px 0;}
+  .sec-head{max-width:44em;margin-bottom:30px;}
+  .sec-kicker{
+    font-size:.78rem;letter-spacing:.16em;color:var(--gold-deep);
+    font-weight:700;text-transform:uppercase;margin-bottom:8px;
+  }
+  h2.sec-title{
+    font-size:clamp(1.35rem,2.6vw,1.7rem);margin:0 0 10px;color:var(--ink);
+    line-height:1.35;
+  }
+  .sec-desc{margin:0;color:var(--muted);font-size:.96rem;}
+
+  /* Cards */
+  .grid{display:grid;gap:20px;}
+  .g3{grid-template-columns:repeat(3,1fr);}
+  .g2{grid-template-columns:repeat(2,1fr);}
+  .card{
+    background:var(--white);border:1px solid var(--line);
+    border-radius:14px;padding:24px 22px;
+    transition:transform .2s,box-shadow .2s,border-color .2s;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(17,26,43,.08);border-color:#c9bfa8;}
+  .card .ico{
+    width:40px;height:40px;border-radius:10px;margin-bottom:14px;
+    background:#fdf3dd;border:1px solid #f1dcae;display:grid;place-items:center;
+  }
+  .card .ico svg{width:22px;height:22px;}
+  .card h3{font-size:1.05rem;margin:0 0 8px;color:var(--ink);}
+  .card p{margin:0;font-size:.93rem;color:var(--muted);line-height:1.8;}
+  .card .meta{margin-top:12px;font-size:.8rem;color:var(--gold-deep);font-weight:600;}
+
+  /* Guide list */
+  .guide-box{
+    background:var(--white);border:1px solid var(--line);border-radius:16px;
+    overflow:hidden;
+  }
+  .guide-row{
+    display:grid;grid-template-columns:56px 1fr;gap:18px;
+    padding:22px 24px;border-bottom:1px solid var(--paper-2);
+  }
+  .guide-row:last-child{border-bottom:none;}
+  .step-no{
+    width:40px;height:40px;border-radius:50%;
+    background:var(--ink);color:var(--gold);font-weight:700;
+    display:grid;place-items:center;font-size:.95rem;
+  }
+  .guide-row h3{margin:0 0 6px;font-size:1.02rem;}
+  .guide-row p{margin:0;color:var(--muted);font-size:.93rem;}
+
+  /* Picks */
+  .pick-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .pick{
+    display:flex;gap:16px;background:var(--white);
+    border:1px solid var(--line);border-radius:14px;padding:18px;
+  }
+  .pick .thumb{
+    flex:0 0 62px;height:86px;border-radius:8px;
+    background:linear-gradient(160deg,#243352,#131d31);
+    border:1px solid rgba(242,181,58,.35);
+    display:grid;place-items:center;color:var(--gold);font-weight:700;font-size:.78rem;
+    letter-spacing:.05em;text-align:center;line-height:1.3;
+  }
+  .pick h3{margin:0 0 6px;font-size:.98rem;}
+  .pick p{margin:0;font-size:.88rem;color:var(--muted);}
+  .pick .badge{
+    display:inline-block;margin-top:8px;font-size:.74rem;
+    background:#fdf3dd;color:var(--gold-deep);border:1px solid #f1dcae;
+    padding:2px 9px;border-radius:999px;font-weight:600;
+  }
+
+  /* FAQ */
+  .faq{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  details{
+    background:var(--white);border:1px solid var(--line);border-radius:12px;
+    padding:16px 20px;margin-bottom:12px;
+  }
+  details[open]{border-color:#c9bfa8;}
+  summary{
+    cursor:pointer;font-weight:600;font-size:.98rem;color:var(--ink);
+    list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+";color:var(--gold-deep);font-size:1.2rem;font-weight:400;}
+  details[open] summary::after{content:"–";}
+  details p{margin:12px 0 0;font-size:.92rem;color:var(--muted);}
+
+  /* CTA band */
+  .band{
+    background:linear-gradient(135deg,#111a2b,#1d2d4a);
+    color:#e9e5da;border-radius:18px;padding:40px 34px;
+    display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center;
+    border:1px solid rgba(242,181,58,.3);
+  }
+  .band h2{margin:0 0 8px;font-size:1.35rem;color:#fff;}
+  .band p{margin:0;color:#b9c3d2;font-size:.94rem;max-width:34em;}
+  .band .actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+  .download-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--gold);color:#191305;font-weight:700;
+    padding:12px 24px;border-radius:10px;font-size:.96rem;
+    pointer-events:none;opacity:.95;cursor:default;
+  }
+  .download-hint{font-size:.78rem;color:#8f9aab;width:100%;}
+
+  /* Footer */
+  footer.site{
+    background:#0c1424;color:#93a0b3;padding:40px 0 30px;margin-top:0;
+    border-top:1px solid rgba(242,181,58,.25);
+  }
+  .foot-grid{
+    display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:flex-start;
+  }
+  .foot-brand{max-width:26em;}
+  .foot-brand .brand-name{color:#fff;font-size:1rem;}
+  .foot-brand p{font-size:.86rem;margin:10px 0 0;color:#7e8b9f;line-height:1.8;}
+  .foot-links{display:flex;flex-wrap:wrap;gap:26px;font-size:.88rem;}
+  .foot-links a{display:block;padding:3px 0;color:#93a0b3;}
+  .foot-links a:hover{color:var(--gold);}
+  .foot-links h4{color:#dbe2ec;font-size:.86rem;margin:0 0 8px;letter-spacing:.06em;}
+  .copyright{
+    margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);
+    font-size:.8rem;color:#6d7a8d;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;
+  }
+
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:32px;}
+    .poster-card{max-width:460px;}
+    .g3{grid-template-columns:1fr 1fr;}
+    .pick-list{grid-template-columns:1fr;}
+    nav.main{display:none;}
+  }
+  @media(max-width:620px){
+    .wrap{padding:0 16px;}
+    .head-inner{min-height:58px;gap:10px;}
+    .brand-name{font-size:1rem;}
+    .head-cta{padding:7px 13px;font-size:.84rem;}
+    .hero{padding:36px 0 34px;}
+    section{padding:40px 0;}
+    .g3,.g2{grid-template-columns:1fr;}
+    .guide-row{grid-template-columns:44px 1fr;gap:12px;padding:18px;}
+    .step-no{width:34px;height:34px;font-size:.86rem;}
+    .band{padding:28px 22px;}
+    .band .actions{width:100%;}
+    .download-btn,.btn-primary,.btn-ghost{width:100%;justify-content:center;}
+    .foot-grid{flex-direction:column;gap:24px;}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap head-inner">
+    <a class="brand" href="#top" aria-label="九九美剧首页">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="4" width="18" height="12" rx="2" stroke="#f2b53a" stroke-width="1.8"/>
+          <path d="M8 6v8M16 6v8" stroke="#f2b53a" stroke-width="1.4"/>
+          <path d="M6 19h12" stroke="#e8e3d8" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="brand-name">九九美剧</span>
+    </a>
+    <nav class="main" aria-label="主导航">
+      <ul>
+        <li><a href="#need">追剧需求</a></li>
+        <li><a href="#how">怎么追</a></li>
+        <li><a href="#picks">片单精选</a></li>
+        <li><a href="#faq">常见问题</a></li>
+      </ul>
+    </nav>
+    <a class="head-cta" href="#picks">看片单</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><i></i>美剧追剧首页</span>
+        <h1 id="hero-title">九九美剧</h1>
+        <p class="lead">九九美剧是一个围绕美剧观看与追剧整理的入口：先想清楚这周想看什么，再决定用哪种节奏追下去。这一页把九九美剧的片单方向、追剧方式和常见疑问放在一起，方便你从第一眼就找到下一步。</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#picks">查看片单精选
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn-ghost" href="#how">了解追剧方式</a>
+        </div>
+        <p class="hero-note">本站为九九美剧的追剧内容首页，具体剧集与播放地址以实际可访问的资源为准。</p>
+      </div>
+
+      <aside class="poster-card" aria-label="九九美剧追剧速览">
+        <span class="tag">追剧速览</span>
+        <h2>一周看什么，先列清楚</h2>
+        <div class="ticket"><span>单集时长</span><span>约 40–60 分钟</span></div>
+        <div class="ticket"><span>常见季数</span><span>1–10 季</span></div>
+        <div class="ticket"><span>适看节奏</span><span>每晚 1–2 集</span></div>
+        <div class="ticket"><span>整理重点</span><span>剧名·季·集</span></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Need -->
+  <section id="need">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">访问需求</div>
+        <h2 class="sec-title">打开九九美剧之前，先确认三件事</h2>
+        <p class="sec-desc">多数人来到九九美剧，并不是缺一个剧名，而是缺一层判断：这部剧值不值得开始、从哪一季接上、以及怎么把进度记下来。先把这三件事想明白，追剧会轻松很多。</p>
+      </div>
+      <div class="grid g3">
+        <article class="card">
+          <div class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="#c98a12" stroke-width="1.8"/><path d="M16 16l4 4" stroke="#c98a12" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <h3>找剧：先定类型再看评分</h3>
+          <p>在九九美剧里选剧，先按悬疑、律政、科幻、家庭这类大类缩小范围，再比较口碑与季数。类型不清楚时，直接看片单里的短评更省时间。</p>
+          <div class="meta">适合刚想开始追美剧的人</div>
+        </article>
+        <article class="card">
+          <div class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="5" width="17" height="14" rx="2" stroke="#c98a12" stroke-width="1.8"/><path d="M7 9h10M7 13h6" stroke="#c98a12" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3>接剧：确认季与集的位置</h3>
+          <p>老剧回归时最容易乱。九九美剧建议记住三个字段：剧名全称、第几季、第几集。缺一个都可能接错剧情，尤其是多线叙事的剧。</p>
+          <div class="meta">适合中途追上来的观众</div>
+        </article>
+        <article class="card">
+          <div class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M6 4h12v16l-6-3.5L6 20V4z" stroke="#c98a12" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>记剧：留一份自己的进度表</h3>
+          <p>追剧最怕忘。用一份简单清单记下待看、在看、已看完三栏，配合九九美剧的片单轮换，就不会出现“打开不知道看哪集”的情况。</p>
+          <div class="meta">适合同时追多部剧的人</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- How -->
+  <section id="how" style="background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">追剧方法</div>
+        <h2 class="sec-title">在九九美剧按这四步走，不容易断更</h2>
+        <p class="sec-desc">追剧是一种有节奏的消费。下面四步是我们整理九九美剧内容时常用的顺序，从选剧到收尾，每一步都有明确的目标。</p>
+      </div>
+      <div class="guide-box">
+        <div class="guide-row">
+          <div class="step-no" aria-hidden="true">01</div>
+          <div>
+            <h3>先列一个不超过五部的候选单</h3>
+            <p>候选太多反而难开始。从九九美剧的片单里挑三到五部，标注类型和大致集数，一周内只看其中一部，看完再换。</p>
+          </div>
+        </div>
+        <div class="guide-row">
+          <div class="step-no" aria-hidden="true">02</div>
+          <div>
+            <h3>确认从第一季第一集开始，还是接续</h3>
+            <p>新剧从第一集开始最稳；回归剧先核对上一季的结尾，再进入新一季。九九美剧的片单会标出剧集的基本定位，帮助你判断是否需要补前情。</p>
+          </div>
+        </div>
+        <div class="guide-row">
+          <div class="step-no" aria-hidden="true">03</div>
+          <div>
+            <h3>固定每晚一到两集的观看节奏</h3>
+            <p>美剧单集通常在四十到六十分钟。固定时段观看，比一次性刷完更容易记住人物关系，也不容易在季末断档。</p>
+          </div>
+        </div>
+        <div class="guide-row">
+          <div class="step-no" aria-hidden="true">04</div>
+          <div>
+            <h3>看完立刻更新自己的进度表</h3>
+            <p>把季数、集数和观看日期写下来。下次回到九九美剧选新剧时，你会清楚自己还剩多少没看完，避免重复开头。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Picks -->
+  <section id="picks">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">片单精选</div>
+        <h2 class="sec-title">九九美剧片单：按观看习惯挑剧</h2>
+        <p class="sec-desc">下面按常见观剧偏好分成几组，每组说明适合谁、从哪里开始。剧名与类型为整理方向，具体可看资源与更新情况请以实际页面为准。</p>
+      </div>
+      <div class="pick-list">
+        <article class="pick">
+          <div class="thumb" aria-hidden="true">悬疑<br>推理</div>
+          <div>
+            <h3>喜欢逐集解谜的观众</h3>
+            <p>单集设悬念、季末收主线的类型，适合每晚一集慢慢推。看之前先记人物，避免中途混淆。</p>
+            <span class="badge">建议从第一季第一集开始</span>
+          </div>
+        </article>
+        <article class="pick">
+          <div class="thumb" aria-hidden="true">律政<br>职场</div>
+          <div>
+            <h3>想边看边放松的观众</h3>
+            <p>案件结构清晰、单集相对独立，适合碎片时间。可以从任意一季切入，不影响主线理解。</p>
+            <span class="badge">适合通勤与睡前</span>
+          </div>
+        </article>
+        <article class="pick">
+          <div class="thumb" aria-hidden="true">科幻<br>设定</div>
+          <div>
+            <h3>偏爱世界观设定的观众</h3>
+            <p>设定复杂，建议按顺序看并随手记名词。前两集信息密度高，看完再决定是否继续。</p>
+            <span class="badge">按季顺序观看更稳</span>
+          </div>
+        </article>
+        <article class="pick">
+          <div class="thumb" aria-hidden="true">家庭<br>喜剧</div>
+          <div>
+            <h3>需要轻松下饭的观众</h3>
+            <p>单集二十分钟左右，剧情连贯但压力小。适合同时追一部正剧，用它调节观看节奏。</p>
+            <span class="badge">可穿插在其他剧之间</span>
+          </div>
+        </article>
+      </div>
+      <p class="sec-desc" style="margin-top:22px;">以上四组是九九美剧片单的常见切分方式，选剧时建议一次只启用一组，看完再切换，追剧进度更容易保持。</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">常见问题</div>
+        <h2 class="sec-title">关于九九美剧，读者问得最多的几件事</h2>
+        <p class="sec-desc">这些问题集中在入口、更新和观看顺序上，回答只涉及本站能说明的部分。</p>
+      </div>
+      <details>
+        <summary>九九美剧首页主要提供什么内容？</summary>
+        <p>这一页提供追剧方向上的整理：选剧思路、观看顺序、片单分组与进度记录方法。它更像一份追剧指南，而不是逐集剧情介绍。</p>
+      </details>
+      <details>
+        <summary>剧集更新和播放地址在哪里确认？</summary>
+        <p>本站不对具体剧集的更新时间和播放地址作出承诺。实际可看的内容、清晰度和集数以你访问到的资源页面为准，建议以自己常用的正规渠道核对。</p>
+      </details>
+      <details>
+        <summary>老剧回归，应该从哪一集接着看？</summary>
+        <p>先回忆上一季结尾的主要冲突，再确认新一季的集数编号。多线叙事的剧建议回看上一季最后两集，九九美剧的追剧步骤里也把这一步放在第二位。</p>
+      </details>
+      <details>
+        <summary>同时追好几部剧，怎么不混乱？</summary>
+        <p>给每部剧单独留一行记录：剧名、季、集、看到日期。控制在三部以内同时在看，超过就先暂停一部，等进度追平再继续。</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="wrap">
+      <div class="band">
+        <div>
+          <h2>从九九美剧的片单开始，今晚就定一部</h2>
+          <p>不必一次看完全部推荐。挑一部符合当下状态的剧，按自己的节奏看下去，进度记在纸上或备忘里都行。</p>
+        </div>
+        <div class="actions">
+          <a class="btn-primary" href="#picks">回到片单精选</a>
+          <a class="download-btn" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4v10M8 11l4 4 4-4M5 19h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            下载
+          </a>
+          <span class="download-hint">下载入口暂未开放，开放后将在此处提供。</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand-name">九九美剧</span>
+        <p>九九美剧是一个美剧追剧内容首页，围绕选剧、接剧与进度记录提供整理与说明。页面内容为观看方法与片单方向，具体剧集资源以实际可访问渠道为准。</p>
+      </div>
+      <div class="foot-links">
+        <div>
+          <h4>页面导航</h4>
+          <a href="#need">追剧需求</a>
+          <a href="#how">怎么追</a>
+          <a href="#picks">片单精选</a>
+        </div>
+        <div>
+          <h4>继续了解</h4>
+          <a href="#faq">常见问题</a>
+          <a href="#top">回到顶部</a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>九九美剧 · 追剧内容首页</span>
+      <span>内容以页面说明为准，不对第三方资源作承诺</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
