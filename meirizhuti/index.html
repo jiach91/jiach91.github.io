@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>每日主题大赛-每日主题大赛规则_每日主题大赛参赛入口与作品展</title>
+<meta name="description" content="每日主题大赛是一个每日更新主题的创作赛事首页：查看今日主题、了解参赛规则与评审维度、浏览往期优秀作品并进入投稿入口。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b2b4b'/%3E%3Cpath d='M32 14l4.6 11.2L48 27l-8.6 7.6L41.6 47 32 41l-9.6 6 2.2-12.4L16 27l11.4-1.8z' fill='%23f5b93c'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#16233a;
+    --ink-soft:#41506b;
+    --paper:#f6f4ef;
+    --card:#ffffff;
+    --line:#e2ded4;
+    --navy:#1b2b4b;
+    --gold:#e2a33a;
+    --gold-soft:#fdf3e0;
+    --teal:#2e7d74;
+    --radius:14px;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",Georgia,"Times New Roman",serif;
+    line-height:1.75;
+    font-size:16px;
+  }
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
+  .sans{font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;}
+
+  /* 页头 */
+  header.site{
+    background:var(--navy);
+    color:#fff;
+    border-bottom:3px solid var(--gold);
+  }
+  .head-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:18px;padding:14px 20px;max-width:var(--maxw);margin:0 auto;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand svg{width:36px;height:36px;flex:none;display:block;}
+  .brand-text{
+    font-size:20px;font-weight:700;letter-spacing:.06em;color:#fff;
+    font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+  }
+  nav.top{display:flex;gap:6px;flex-wrap:wrap;}
+  nav.top a{
+    color:#e8ecf5;font-size:14px;padding:7px 12px;border-radius:999px;
+    font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+  }
+  nav.top a:hover{background:rgba(255,255,255,.12);text-decoration:none;}
+  nav.top a.cta{background:var(--gold);color:#22304a;font-weight:700;}
+  nav.top a.cta:hover{background:#f0b955;}
+
+  /* 首屏 */
+  .hero{
+    background:linear-gradient(180deg,#1b2b4b 0%,#243a63 100%);
+    color:#fff;padding:52px 0 46px;position:relative;overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;right:-90px;top:-60px;width:340px;height:340px;
+    background:radial-gradient(circle,rgba(226,163,58,.30),transparent 68%);
+    pointer-events:none;
+  }
+  .hero .wrap{position:relative;z-index:1;}
+  .today-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(226,163,58,.16);border:1px solid rgba(226,163,58,.5);
+    color:#f7d79b;font-size:13px;padding:5px 14px;border-radius:999px;
+    letter-spacing:.08em;font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+  }
+  h1{
+    font-size:clamp(28px,5vw,46px);
+    margin:18px 0 10px;letter-spacing:.04em;line-height:1.3;
+    font-weight:800;
+  }
+  .hero-sub{
+    max-width:640px;color:#d3dbeb;font-size:16.5px;margin:0 0 22px;
+  }
+  .hero-topic{
+    background:rgba(255,255,255,.07);border-left:4px solid var(--gold);
+    border-radius:0 10px 10px 0;padding:14px 18px;max-width:660px;margin-bottom:26px;
+  }
+  .hero-topic strong{color:#f7d79b;font-size:13px;letter-spacing:.12em;
+    font-family:"PingFang SC","Microsoft YaHei",sans-serif;display:block;margin-bottom:4px;}
+  .hero-topic p{margin:0;font-size:18px;}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:11px 24px;border-radius:999px;font-size:15px;
+    font-family:"PingFang SC","Microsoft YaHei",sans-serif;font-weight:700;
+    transition:.18s;
+  }
+  .btn-primary{background:var(--gold);color:#22304a;}
+  .btn-primary:hover{background:#f0b955;text-decoration:none;}
+  .btn-ghost{border:1px solid rgba(255,255,255,.45);color:#fff;}
+  .btn-ghost:hover{background:rgba(255,255,255,.12);text-decoration:none;}
+  .btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed;pointer-events:none;}
+
+  /* 数据条 */
+  .stats{
+    background:#fff;border-bottom:1px solid var(--line);
+  }
+  .stats-inner{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    max-width:var(--maxw);margin:0 auto;padding:0 20px;
+  }
+  .stat{padding:20px 10px;text-align:center;border-right:1px solid var(--line);}
+  .stat:last-child{border-right:none;}
+  .stat b{display:block;font-size:24px;color:var(--navy);font-family:"PingFang SC","Microsoft YaHei",sans-serif;}
+  .stat span{font-size:13px;color:var(--ink-soft);}
+
+  /* 通用区块 */
+  section{padding:54px 0;}
+  .sec-head{margin-bottom:28px;}
+  .sec-head h2{
+    font-size:clamp(21px,3vw,27px);margin:0 0 8px;letter-spacing:.03em;
+    display:flex;align-items:center;gap:10px;
+  }
+  .sec-head h2::before{
+    content:"";display:inline-block;width:6px;height:22px;background:var(--gold);border-radius:3px;
+  }
+  .sec-head p{margin:0;color:var(--ink-soft);max-width:720px;font-size:15.5px;}
+
+  /* 规则卡 */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px 22px;
+  }
+  .card h3{margin:0 0 10px;font-size:18px;letter-spacing:.02em;}
+  .card p{margin:0;color:var(--ink-soft);font-size:15px;}
+  .card .num{
+    display:inline-flex;width:32px;height:32px;border-radius:50%;
+    background:var(--gold-soft);color:#a9731c;align-items:center;justify-content:center;
+    font-weight:700;margin-bottom:12px;font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+  }
+  .card ul{margin:10px 0 0;padding-left:18px;color:var(--ink-soft);font-size:15px;}
+  .card ul li{margin-bottom:5px;}
+
+  /* 作品展 */
+  .works{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
+  .tabs button{
+    font:inherit;font-size:14px;padding:7px 16px;border-radius:999px;cursor:pointer;
+    border:1px solid var(--line);background:#faf8f3;color:var(--ink-soft);
+    font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+  }
+  .tabs button.active{background:var(--navy);border-color:var(--navy);color:#fff;}
+  .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .work{
+    border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fdfcf9;
+  }
+  .work-art{display:block;width:100%;height:auto;background:#eef1f6;}
+  .work-body{padding:16px 18px 20px;}
+  .work-body h3{margin:0 0 6px;font-size:16.5px;}
+  .work-body p{margin:0;font-size:14px;color:var(--ink-soft);}
+  .work-meta{margin-top:10px;font-size:12.5px;color:#7a8598;
+    font-family:"PingFang SC","Microsoft YaHei",sans-serif;}
+  .empty-note{
+    display:none;padding:26px;text-align:center;color:var(--ink-soft);
+    border:1px dashed var(--line);border-radius:var(--radius);font-size:15px;
+  }
+
+  /* 流程 */
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:f;}
+  .flow-step{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px;position:relative;
+  }
+  .flow-step::before{
+    counter-increment:f;content:"0" counter(f);
+    font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+    font-size:13px;font-weight:700;color:var(--gold);
+    letter-spacing:.1em;
+  }
+  .flow-step h3{margin:6px 0 6px;font-size:16px;}
+  .flow-step p{margin:0;font-size:14px;color:var(--ink-soft);}
+
+  /* 正文段落 */
+  .prose{max-width:820px;}
+  .prose h2{font-size:clamp(20px,2.6vw,25px);margin:0 0 14px;}
+  .prose p{margin:0 0 16px;color:var(--ink-soft);}
+  .prose strong{color:var(--ink);}
+
+  /* 提示块 */
+  .notice{
+    background:var(--gold-soft);border:1px solid #f0dcb4;border-radius:var(--radius);
+    padding:22px 24px;margin-top:26px;
+  }
+  .notice h3{margin:0 0 8px;font-size:16.5px;color:#8a5c12;}
+  .notice p{margin:0;font-size:15px;color:#6b5626;}
+
+  /* 页尾 */
+  footer.site{
+    background:var(--navy);color:#c8d2e4;padding:36px 0 30px;font-size:14px;
+    border-top:3px solid var(--gold);
+  }
+  .foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;}
+  .foot-brand{max-width:380px;}
+  .foot-brand .brand-text{color:#fff;font-size:17px;margin-bottom:8px;display:block;}
+  .foot-brand p{margin:0;color:#9fadc6;font-size:13.5px;}
+  .foot-links{display:flex;gap:46px;flex-wrap:wrap;}
+  .foot-col h4{margin:0 0 8px;font-size:13px;color:#fff;letter-spacing:.08em;
+    font-family:"PingFang SC","Microsoft YaHei",sans-serif;}
+  .foot-col a{display:block;color:#a9b7ce;font-size:13.5px;margin-bottom:5px;}
+  .foot-col a:hover{color:#f7d79b;text-decoration:none;}
+  .copyright{
+    margin-top:26px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);
+    font-size:12.5px;color:#8c9ab3;
+  }
+
+  @media (max-width:900px){
+    .grid-3,.work-grid{grid-template-columns:repeat(2,1fr);}
+    .flow{grid-template-columns:repeat(2,1fr);}
+    .stats-inner{grid-template-columns:repeat(2,1fr);}
+    .stat:nth-child(2){border-right:none;}
+    .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line);}
+  }
+  @media (max-width:600px){
+    body{font-size:15.5px;}
+    .hero{padding:38px 0 34px;}
+    .grid-3,.work-grid,.flow{grid-template-columns:1fr;}
+    section{padding:40px 0;}
+    .head-inner{padding:12px 16px;}
+    nav.top a{font-size:13px;padding:6px 10px;}
+    .stats-inner{grid-template-columns:repeat(2,1fr);padding:0 8px;}
+    .stat b{font-size:20px;}
+    .foot-links{gap:28px;}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="head-inner">
+    <div class="brand">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#243a63"/>
+        <path d="M32 14l4.6 11.2L48 27l-8.6 7.6L41.6 47 32 41l-9.6 6 2.2-12.4L16 27l11.4-1.8z" fill="#e2a33a"/>
+      </svg>
+      <span class="brand-text">每日主题大赛</span>
+    </div>
+    <nav class="top" aria-label="主导航">
+      <a href="#today">今日主题</a>
+      <a href="#rules">参赛规则</a>
+      <a href="#works">作品展</a>
+      <a href="#flow">参赛流程</a>
+      <a href="#faq">常见问题</a>
+      <a class="cta" href="#today">我要投稿</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="today">
+  <div class="wrap">
+    <span class="today-tag">今日主题 · 每日更新</span>
+    <h1>每日主题大赛</h1>
+    <p class="hero-sub">一个以“一天一题”为节奏的创作赛事：每天公布一个主题，参赛者在限定时间内围绕主题完成作品并提交，次日公布入选作品与评语。</p>
+
+    <div class="hero-topic">
+      <strong>今日主题</strong>
+      <p>《城市里的一扇窗》</p>
+    </div>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#flow">查看投稿方式</a>
+      <a class="btn btn-ghost" href="#works">浏览往期作品</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats" aria-label="赛事概览">
+  <div class="stats-inner">
+    <div class="stat"><b>1 天</b><span>单期主题周期</span></div>
+    <div class="stat"><b>1 题</b><span>每期一个主题</span></div>
+    <div class="stat"><b>3 件</b><span>每期入选作品</span></div>
+    <div class="stat"><b>次日</b><span>公布入选与评语</span></div>
+  </div>
+</div>
+
+<section id="rules">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>参赛规则</h2>
+      <p>每日主题大赛的规则围绕“一题、一天、一件作品”设计，目的是让参赛门槛足够低、比较维度足够统一。以下三项是参赛前必须先确认的内容。</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <span class="num">1</span>
+        <h3>参赛资格</h3>
+        <p>面向所有愿意围绕当日主题完成作品的创作者，不限年龄与职业，也不要求过往参赛记录。个人可独立参赛，同一期只提交一件作品。</p>
+      </div>
+      <div class="card">
+        <span class="num">2</span>
+        <h3>作品要求</h3>
+        <ul>
+          <li>必须围绕当日公布的主题展开，不得偏离题意；</li>
+          <li>须为本人原创，未在其他赛事中获奖；</li>
+          <li>提交时附一句创作说明，便于评审理解思路；</li>
+          <li>形式不限，以能清楚表达主题为准。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="num">3</span>
+        <h3>评审维度</h3>
+        <ul>
+          <li>切题度：是否真正回应了当日主题；</li>
+          <li>完成度：作品是否完整、无未处理部分；</li>
+          <li>表达力：主题是否被清楚传达。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="notice">
+      <h3>关于投稿入口</h3>
+      <p>投稿通道按日开启，提交后不可修改，请在提交前自行复核主题与作品信息。页面中的投稿按钮为入口说明，具体提交方式以当期公告为准。</p>
+    </div>
+  </div>
+</section>
+
+<section class="works" id="works">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>往期作品展</h2>
+      <p>每期入选作品会按主题归档在此。作品展同时承担两个作用：为参赛者提供切题参考，也让每日主题大赛的评审标准变得可被观察。</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="作品分类">
+      <button class="active" data-filter="all" role="tab" aria-selected="true">全部</button>
+      <button data-filter="visual" role="tab" aria-selected="false">视觉创作</button>
+      <button data-filter="text" role="tab" aria-selected="false">文字创作</button>
+    </div>
+
+    <div class="work-grid" id="workGrid">
+      <article class="work" data-cat="visual">
+        <svg class="work-art" viewBox="0 0 400 220" role="img" aria-label="以窗框与光斑为构图的主题插画">
+          <rect width="400" height="220" fill="#e8edf5"/>
+          <rect x="60" y="30" width="150" height="160" fill="#cfdaea"/>
+          <rect x="60" y="30" width="150" height="160" fill="none" stroke="#8fa3c0" stroke-width="4"/>
+          <line x1="135" y1="30" x2="135" y2="190" stroke="#8fa3c0" stroke-width="4"/>
+          <line x1="60" y1="110" x2="210" y2="110" stroke="#8fa3c0" stroke-width="4"/>
+          <circle cx="300" cy="90" r="46" fill="#e2a33a" opacity=".55"/>
+          <circle cx="300" cy="90" r="24" fill="#e2a33a" opacity=".9"/>
+          <rect x="250" y="150" width="110" height="10" fill="#b8c6da"/>
+        </svg>
+        <div class="work-body">
+          <h3>窗内的黄昏</h3>
+          <p>用窗框分割画面，让室内外形成两种时间感，回应“城市里的一扇窗”。</p>
+          <div class="work-meta">视觉创作 · 入选作品</div>
+        </div>
+      </article>
+
+      <article class="work" data-cat="text">
+        <svg class="work-art" viewBox="0 0 400 220" role="img" aria-label="以手写文字与横线为构图的主题插画">
+          <rect width="400" height="220" fill="#faf6ec"/>
+          <rect x="52" y="34" width="296" height="152" rx="6" fill="#fff" stroke="#e0d9c6" stroke-width="2"/>
+          <line x1="78" y1="70" x2="322" y2="70" stroke="#d8d2bf" stroke-width="5" stroke-linecap="round"/>
+          <line x1="78" y1="100" x2="300" y2="100" stroke="#d8d2bf" stroke-width="5" stroke-linecap="round"/>
+          <line x1="78" y1="130" x2="316" y2="130" stroke="#d8d2bf" stroke-width="5" stroke-linecap="round"/>
+          <line x1="78" y1="160" x2="220" y2="160" stroke="#e2a33a" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div class="work-body">
+          <h3>写给楼下的那盏灯</h3>
+          <p>以第一人称写一扇窗外的固定光源，把城市生活写成一段安静的每日重复。</p>
+          <div class="work-meta">文字创作 · 入选作品</div>
+        </div>
+      </article>
+
+      <article class="work" data-cat="visual">
+        <svg class="work-art" viewBox="0 0 400 220" role="img" aria-label="以格子窗与街景为构图的主题插画">
+          <rect width="400" height="220" fill="#dfe7f1"/>
+          <g stroke="#93a6c2" stroke-width="3" fill="#c3d1e4">
+            <rect x="70" y="40" width="80" height="70"/>
+            <rect x="160" y="40" width="80" height="70"/>
+            <rect x="70" y="120" width="80" height="70"/>
+            <rect x="160" y="120" width="80" height="70"/>
+          </g>
+          <rect x="270" y="60" width="70" height="130" fill="#b3c3d9"/>
+          <rect x="288" y="90" width="34" height="26" fill="#f7d79b"/>
+          <circle cx="305" cy="150" r="10" fill="#e2a33a"/>
+        </svg>
+        <div class="work-body">
+          <h3>四格里的街</h3>
+          <p>把一扇窗拆成四格，每格是一段不同的街景片段，强调窗口的观看位置。</p>
+          <div class="work-meta">视觉创作 · 入选作品</div>
+        </div>
+      </article>
+
+      <article class="work" data-cat="text">
+        <svg class="work-art" viewBox="0 0 400 220" role="img" aria-label="以对话气泡为构图的主题插画">
+          <rect width="400" height="220" fill="#eef3f1"/>
+          <rect x="58" y="46" width="180" height="70" rx="16" fill="#fff" stroke="#b9cfc9" stroke-width="3"/>
+          <rect x="140" y="130" width="200" height="60" rx="14" fill="#2e7d74" opacity=".85"/>
+          <circle cx="92" cy="80" r="5" fill="#b9cfc9"/>
+          <circle cx="118" cy="80" r="5" fill="#b9cfc9"/>
+          <circle cx="144" cy="80" r="5" fill="#b9cfc9"/>
+        </svg>
+        <div class="work-body">
+          <h3>窗台边的三句对白</h3>
+          <p>只写三段对话，靠语气与停顿暗示窗内外的关系，篇幅短但信息集中。</p>
+          <div class="work-meta">文字创作 · 入选作品</div>
+        </div>
+      </article>
+    </div>
+
+    <div class="empty-note" id="emptyNote">该分类下暂无归档作品，可切换其他分类查看。</div>
+  </div>
+</section>
+
+<section id="flow">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>参赛流程</h2>
+      <p>每日主题大赛的流程固定为四步，从看题到公布结果不超过两个自然日，便于参赛者形成每日创作的节奏。</p>
+    </div>
+    <div class="flow">
+      <div class="flow-step">
+        <h3>看题</h3>
+        <p>每日主题在页面顶部更新，确认题目与截止时间后再开始构思。</p>
+      </div>
+      <div class="flow-step">
+        <h3>创作</h3>
+        <p>围绕主题完成一件作品，准备一句创作说明，说明与作品一同提交。</p>
+      </div>
+      <div class="flow-step">
+        <h3>提交</h3>
+        <p>在当期通道关闭前提交，提交后不可修改，请先复核主题与信息。</p>
+      </div>
+      <div class="flow-step">
+        <h3>看结果</h3>
+        <p>次日公布入选作品与评审评语，并归档进入往期作品展。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="background:#fff;border-top:1px solid var(--line);">
+  <div class="wrap">
+    <div class="prose">
+      <h2>关于每日主题大赛，你需要先知道的几件事</h2>
+      <p><strong>每日主题大赛</strong>的核心不是“比谁做得更复杂”，而是“在同一题目下，谁能更准确地回应主题”。因此它的参赛门槛被刻意压低：不需报名费，不需长期积累，只要当天完成一件切题的作品就可以参与。这也是它区别于常规征集活动的关键——评价对象始终是当天的题目，而不是参赛者的整体履历。</p>
+      <p>对参赛者来说，最常被忽略的一点是<strong>创作说明</strong>。评审在短时间内需要判断作品与主题的关系，一句清楚的说明往往能减少误读。每日主题大赛的评审维度中，“切题度”排在首位，说明的作用正是帮助评审确认你是否真的读懂了题目，而不是事后补上的解释。</p>
+      <p>对围观者来说，往期作品展同样有价值。连续查看几期入选作品，可以观察到同一主题下不同的切入方式：有人从场景入手，有人从细节入手，有人干脆用对话推进。这些差异构成了每日主题大赛的参考样本，也让“如何构思”这件事变得可被学习。</p>
+      <p>如果你准备开始第一期，建议先做两件事：一是把题目读两遍，确认你回应的是题目本身而不是你熟悉的题材；二是把作品控制在自己能在一天内完成的范围内。每日主题大赛的节奏决定了“完成”比“完美”更重要，先完成，再在下一期里改进。</p>
+    </div>
+
+    <div class="grid-3" style="margin-top:32px;">
+      <div class="card">
+        <h3>可以连续参加吗？</h3>
+        <p>可以。每日主题大赛按天独立计算，连续参加不会影响单期评审，也不会累计额外权重。</p>
+      </div>
+      <div class="card">
+        <h3>提交后能修改吗？</h3>
+        <p>不能。提交即视为最终版本，请在提交前确认主题、作品与创作说明三部分信息。</p>
+      </div>
+      <div class="card">
+        <h3>没入选会怎样？</h3>
+        <p>未入选作品不公开展示，也不影响后续参赛。每日主题大赛按单期独立评审，下一期重新开始。</p>
+      </div>
+    </div>
+
+    <div style="margin-top:30px;display:flex;gap:12px;flex-wrap:wrap;">
+      <a class="btn btn-primary sans" href="#today">进入今日主题</a>
+      <a class="btn sans" href="#" style="background:#eef1f6;color:#41506b;border:1px solid #d7deea;" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载往期主题合集</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand-text">每日主题大赛</span>
+        <p>一天一题，围绕同一主题完成一件作品。每日主题大赛以固定节奏公布题目、收录入选作品并公开评审评语。</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h4>赛事</h4>
+          <a href="#today">今日主题</a>
+          <a href="#rules">参赛规则</a>
+          <a href="#flow">参赛流程</a>
+        </div>
+        <div class="foot-col">
+          <h4>内容</h4>
+          <a href="#works">往期作品展</a>
+          <a href="#faq">常见问题</a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">每日主题大赛 · 赛事信息与作品归档以当期公告为准。</div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var tabs = document.querySelectorAll('.tabs button');
+    var works = document.querySelectorAll('#workGrid .work');
+    var empty = document.getElementById('emptyNote');
+    tabs.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        tabs.forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected','true');
+        var f = btn.getAttribute('data-filter');
+        var shown = 0;
+        works.forEach(function(w){
+          var show = (f === 'all' || w.getAttribute('data-cat') === f);
+          w.style.display = show ? '' : 'none';
+          if(show) shown++;
+        });
+        empty.style.display = shown === 0 ? 'block' : 'none';
+      });
+    });
+  })();
+</script>
+
+</body>
+          </html>
